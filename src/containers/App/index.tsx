@@ -1,5 +1,7 @@
 import * as React from "react";
 
+import ButtonBase from "../../components/Button/ButtonBase";
+
 export const App = () => {
-    return <div>Hello cclc</div>;
+    return <ButtonBase variant="outlined">Hello World</ButtonBase>;
 };
