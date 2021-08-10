@@ -1,6 +1,4 @@
-import * as React from "react";
-
-import ButtonBase, { ButtonBaseProps } from "./";
+import ButtonBase, { ButtonBaseProps } from ".";
 
 import { Story } from "@storybook/react";
 
@@ -19,7 +17,6 @@ Primary.args = {
     children: "ABC",
     disabled: true,
     color: "default",
-    variant: "contained",
 };
 
 export const Secondary = Template.bind({});
