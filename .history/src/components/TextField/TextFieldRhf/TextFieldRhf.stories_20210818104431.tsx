@@ -1,7 +1,8 @@
 import { SubmitHandler, useForm } from "react-hook-form";
 
+import ButtonBase from "src/components/Button/ButtonBase";
+
 import { TextFieldBaseProps, TextFieldRhf } from ".";
-import ButtonBase from "../../Button/ButtonBase/index";
 
 import { Story } from "@storybook/react";
 
@@ -27,7 +28,7 @@ export const FormWithTextFieldRhf: React.FC = (props) => {
             <TextFieldRhf
                 inputRef={inputRef}
                 {...inputProps}
-                errorMessage={errors["username"] && errors["username"].message}
+                errorMessage={errors["username"] != null && errors["username"].message}
                 {...props}
             />
             <br />

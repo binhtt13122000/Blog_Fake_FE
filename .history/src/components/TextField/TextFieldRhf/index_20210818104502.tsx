@@ -15,7 +15,7 @@ export const TextFieldRhf = React.forwardRef<HTMLInputElement, TextFieldBaseProp
         return (
             <MaterialTextField
                 error={Boolean(errorMessage)}
-                helperText={errorMessage ? errorMessage : ""}
+                helperText={Boolean(errorMessage) && errorMessage}
                 inputRef={inputRef}
                 {...rest}
             />
