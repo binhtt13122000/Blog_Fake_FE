@@ -12,11 +12,10 @@ export interface TextFieldBaseProps extends MaterialTextFieldProps {
 export const TextFieldRhf = React.forwardRef<HTMLInputElement, TextFieldBaseProps>(
     (props: TextFieldBaseProps) => {
         const { errorMessage, inputRef, ...rest } = props;
-        const isError = Boolean(errorMessage);
         return (
             <MaterialTextField
-                error={isError}
-                helperText={isError && errorMessage}
+                error={Boolean(errorMessage)}
+                helperText={Boolean(errorMessage) && errorMessage}
                 inputRef={inputRef}
                 {...rest}
             />
