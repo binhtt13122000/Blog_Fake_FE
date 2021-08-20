@@ -139,61 +139,59 @@ const BoxBase = (props: BoxBaseProps) => {
             ? `${maxHeight * 100}%`
             : `${maxHeight}px`;
 
-    const borderRads =
-        borderRadius === "initial" ? borderRadius : borderRadius.length + borderRadius.unit;
+    const borderRads = borderRadius === "initial" ? "" : borderRadius.length + borderRadius.unit;
 
-    const borderAttr = border === "initial" ? border : `${border.length}px ${border.style}`;
+    const borderAttr = border === "initial" ? "" : `${border.length}px ${border.style}`;
 
-    const backgroundColor =
-        bgcolor === "initial" ? bgcolor : replyTheme.palette[bgcolor][typeColor];
-    const color = bgcolor === "initial" ? bgcolor : replyTheme.palette[bgcolor].contrastText;
+    const backgroundColor = bgcolor === "initial" ? "" : replyTheme.palette[bgcolor][typeColor];
+    const color = bgcolor === "initial" ? "" : replyTheme.palette[bgcolor].contrastText;
 
     const padTop =
         paddingTop === "initial"
-            ? paddingTop
+            ? ""
             : paddingTop.unit
             ? `${paddingTop.value + paddingTop.unit}`
             : `${paddingTop.value * theme.spacing}px`;
     const padRight =
         paddingRight === "initial"
-            ? paddingRight
+            ? ""
             : paddingRight.unit
             ? `${paddingRight.value + paddingRight.value}`
             : `${paddingRight.value * theme.spacing}px`;
     const padBottom =
         paddingBottom === "initial"
-            ? paddingBottom
+            ? ""
             : paddingBottom.unit
             ? `${paddingBottom.value + paddingBottom.value}`
             : `${paddingBottom.value * theme.spacing}px`;
     const padLeft =
         paddingLeft === "initial"
-            ? paddingLeft
+            ? ""
             : paddingLeft.unit
             ? `${paddingLeft.value + paddingLeft.value}`
             : `${paddingLeft.value * theme.spacing}px`;
 
     const marTop =
         marginTop === "initial"
-            ? marginTop
+            ? ""
             : marginTop.unit
             ? `${marginTop.value + marginTop.unit}`
             : `${marginTop.value * theme.spacing}px`;
     const marRight =
         marginRight === "initial"
-            ? marginRight
+            ? ""
             : marginRight.unit
             ? `${marginRight.value + marginRight.unit}`
             : `${marginRight.value * theme.spacing}px`;
     const marBottom =
         marginBottom === "initial"
-            ? marginBottom
+            ? ""
             : marginBottom.unit
             ? `${marginBottom.value + marginBottom.unit}`
             : `${marginBottom.value * theme.spacing}px`;
     const marLeft =
         marginLeft === "initial"
-            ? marginLeft
+            ? ""
             : marginLeft.unit
             ? `${marginLeft.value + marginLeft.unit}`
             : `${marginLeft.value * theme.spacing}px`;
