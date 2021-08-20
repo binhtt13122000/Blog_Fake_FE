@@ -4,15 +4,51 @@ import BoxBase from ".";
 
 export const BoxImplement: React.FC = (props) => {
     return (
-        <BoxBase {...props}>
+        <BoxBase
+            minHeight={{ length: 80, unit: "px" }}
+            border={{ length: 50, unit: "px", style: "solid" }}
+            margin={{
+                marginTop: 10,
+                marginRight: 10,
+                marginBottom: 10,
+                marginLeft: 10,
+                unit: "px",
+            }}
+            padding={{
+                paddingTop: 10,
+                paddingRight: 10,
+                paddingBottom: 40,
+                paddingLeft: 10,
+                unit: "px",
+            }}
+            {...props}
+        >
             <h1>Check Test</h1>
-            <BoxBase bgcolor="primary" p={2} width={100} overflow="hidden">
+            <BoxBase
+                bgcolor="primary"
+                p={2}
+                width={{ length: 100, unit: "%" }}
+                height={{ length: 100, unit: "%" }}
+                overflow="hidden"
+            >
                 BoxBase1
             </BoxBase>
-            <BoxBase bgcolor="secondary" p={2} width={100} overflow="hidden">
+            <BoxBase
+                bgcolor="secondary"
+                p={2}
+                width={{ length: 100, unit: "%" }}
+                height={{ length: 100, unit: "%" }}
+                overflow="hidden"
+            >
                 BoxBase2
             </BoxBase>
-            <BoxBase bgcolor="error" p={2} width={100} overflow="hidden">
+            <BoxBase
+                bgcolor="error"
+                p={2}
+                width={{ length: 100, unit: "%" }}
+                height={{ length: 100, unit: "%" }}
+                overflow="hidden"
+            >
                 BoxBase2
             </BoxBase>
         </BoxBase>
