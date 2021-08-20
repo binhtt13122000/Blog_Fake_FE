@@ -171,4 +171,5 @@ const themeObject: Readonly<ThemeOptions> = {
 };
 
 const replyTheme = createTheme(themeObject);
+
 export default replyTheme;
