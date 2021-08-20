@@ -46,6 +46,10 @@ export interface BoxBaseProps extends MaterialBoxProps {
             | "outset";
     };
     borderRadius?: { length: number; unit: "px" | "%" };
+    margin?: {
+        value: number;
+        unit?: "%";
+    };
     marginTop?: {
         value: number;
         unit?: "%";
@@ -59,6 +63,10 @@ export interface BoxBaseProps extends MaterialBoxProps {
         unit?: "%";
     };
     marginLeft?: {
+        value: number;
+        unit?: "%";
+    };
+    padding?: {
         value: number;
         unit?: "%";
     };
@@ -96,10 +104,12 @@ const BoxBase = (props: BoxBaseProps) => {
         typeColor = "main",
         border = "initial",
         borderRadius = "initial",
+        margin = "initial",
         marginTop = "initial",
         marginRight = "initial",
         marginBottom = "initial",
         marginLeft = "initial",
+        padding = "initial",
         paddingTop = "initial",
         paddingRight = "initial",
         paddingBottom = "initial",
@@ -146,6 +156,12 @@ const BoxBase = (props: BoxBaseProps) => {
     const backgroundColor = bgcolor === "initial" ? "" : replyTheme.palette[bgcolor][typeColor];
     const color = bgcolor === "initial" ? "" : replyTheme.palette[bgcolor].contrastText;
 
+    const paddingAttr =
+        padding === "initial"
+            ? ""
+            : padding.unit
+            ? `${padding.value + padding.unit}`
+            : `${padding.value * theme.spacing}px`;
     const padTop =
         paddingTop === "initial"
             ? ""
@@ -171,6 +187,12 @@ const BoxBase = (props: BoxBaseProps) => {
             ? `${paddingLeft.value + paddingLeft.value}`
             : `${paddingLeft.value * theme.spacing}px`;
 
+    const marginAttr =
+        margin === "initial"
+            ? ""
+            : margin.unit
+            ? `${margin.value + margin.unit}`
+            : `${margin.value * theme.spacing}px`;
     const marTop =
         marginTop === "initial"
             ? ""
@@ -208,10 +230,12 @@ const BoxBase = (props: BoxBaseProps) => {
             bgcolor={backgroundColor}
             color={color}
             border={borderAttr}
+            padding={paddingAttr}
             paddingTop={padTop}
             paddingRight={padRight}
             paddingBottom={padBottom}
             paddingLeft={padLeft}
+            margin={marginAttr}
             marginTop={marTop}
             marginRight={marRight}
             marginBottom={marBottom}
