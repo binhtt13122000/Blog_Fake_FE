@@ -7,7 +7,7 @@ const theme = {
 };
 
 export interface BoxBaseProps extends MaterialBoxProps {
-    display?: "flex" | "block" | "inline-block";
+    display?: "flex" | "inline-flex" | "block" | "inline-block" | "inline";
     flexDirection?: "row" | "row-reverse" | "column" | "column-reverse";
     justifyContent?:
         | "center"
@@ -22,12 +22,12 @@ export interface BoxBaseProps extends MaterialBoxProps {
         | "space-evenly"
         | "stretch";
     alignItems?: "flex-start" | "flex-end" | "center" | "baseline" | "stretch";
-    width?: number;
-    maxWidth?: number;
-    minWidth?: number;
-    height?: number;
-    maxHeight?: number;
-    minHeight?: number;
+    width?: number | "fit-content" | "max-content" | "min-content" | "auto";
+    maxWidth?: number | "fit-content" | "max-content" | "min-content" | "auto";
+    minWidth?: number | "fit-content" | "max-content" | "min-content" | "auto";
+    height?: number | "fit-content" | "max-content" | "min-content" | "auto";
+    maxHeight?: number | "fit-content" | "max-content" | "min-content" | "auto";
+    minHeight?: number | "fit-content" | "max-content" | "min-content" | "auto";
     bgcolor?: "primary" | "secondary" | "info" | "error" | "warning" | "success";
     typeColor?: "main" | "light" | "dark";
     boxSizing?: "content-box" | "border-box" | "initial" | "inherit";
@@ -89,6 +89,32 @@ export interface BoxBaseProps extends MaterialBoxProps {
     flexWrap?: "nowrap" | "wrap" | "wrap-reverse" | "inherit" | "initial" | "revert" | "unset";
     flexGrow?: number | "inherit" | "initial" | "revert" | "unset";
     flexShrink?: number | "inherit" | "initial" | "revert" | "unset";
+    flexBasis?: {
+        value:
+            | number
+            | "auto"
+            | "fill"
+            | "max-content"
+            | "min-content"
+            | "fit-content"
+            | "content"
+            | "inherit"
+            | "initial"
+            | "revert"
+            | "unset";
+        unit?: "px";
+    };
+    overflow?:
+        | "visible"
+        | "hidden"
+        | "clip"
+        | "scroll"
+        | "auto"
+        | "visible"
+        | "inherit"
+        | "initial"
+        | "revert"
+        | "unset";
 }
 
 const BoxBase = (props: BoxBaseProps) => {
@@ -114,36 +140,41 @@ const BoxBase = (props: BoxBaseProps) => {
         paddingRight = "initial",
         paddingBottom = "initial",
         paddingLeft = "initial",
+        flexBasis = "initial",
         ...rest
     } = props;
     const widthLength =
-        width === "initial" ? width : width >= 0 && width <= 1 ? `${width * 100}%` : `${width}px`;
+        typeof width === "string"
+            ? width
+            : width >= 0 && width <= 1
+            ? `${width * 100}%`
+            : `${width}px`;
     const minWidthLength =
-        minWidth === "initial"
+        typeof minWidth === "string"
             ? minWidth
             : minWidth >= 0 && minWidth <= 1
             ? `${minWidth * 100}%`
             : `${minWidth}px`;
     const maxWidthLength =
-        maxWidth === "initial"
+        typeof maxWidth === "string"
             ? maxWidth
             : maxWidth >= 0 && maxWidth <= 1
             ? `${maxWidth * 100}%`
             : `${maxWidth}px`;
     const heightLength =
-        height === "initial"
+        typeof height === "string"
             ? height
             : height >= 0 && height <= 1
             ? `${height * 100}%`
             : `${height}px`;
     const minHeightLength =
-        minHeight === "initial"
+        typeof minHeight === "string"
             ? minHeight
             : minHeight >= 0 && minHeight <= 1
             ? `${minHeight * 100}%`
             : `${minHeight}px`;
     const maxHeightLength =
-        maxHeight === "initial"
+        typeof maxHeight === "string"
             ? maxHeight
             : maxHeight >= 0 && maxHeight <= 1
             ? `${maxHeight * 100}%`
@@ -218,6 +249,12 @@ const BoxBase = (props: BoxBaseProps) => {
             ? `${marginLeft.value + marginLeft.unit}`
             : `${marginLeft.value * theme.spacing}px`;
 
+    const flexBasisAttr =
+        flexBasis === "initial"
+            ? ""
+            : flexBasis.unit && typeof flexBasis.value === "number"
+            ? `${flexBasis.value + flexBasis.unit}`
+            : flexBasis.value;
     return (
         <MaterialBox
             width={widthLength}
@@ -241,6 +278,7 @@ const BoxBase = (props: BoxBaseProps) => {
             marginBottom={marBottom}
             marginLeft={marLeft}
             borderRadius={borderRads}
+            flexBasis={flexBasisAttr}
             {...rest}
         >
             {props.children}
