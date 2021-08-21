@@ -1,22 +1,27 @@
-import TextFieldBase, { TextFieldBaseProps } from ".";
+import FormWithTextFieldRhf, { TextFieldBaseProps } from ".";
 
 import { Story } from "@storybook/react";
 
 export default {
-    title: "Components/TextFieldBase",
-    component: TextFieldBase,
+    title: "Components/TextFieldRHF",
+    component: FormWithTextFieldRhf,
+    argTypes: {
+        variant: {
+            options: ["standard", "filled", "outlined"],
+            control: { type: "radio" },
+        },
+    },
 };
 
-const Template: Story<TextFieldBaseProps> = (args) => <TextFieldBase {...args} />;
+const Template: Story<TextFieldBaseProps> = (args) => <FormWithTextFieldRhf {...args} />;
 
 export const Standard = Template.bind({});
 
 Standard.args = {
     label: "Input new text",
     variant: "standard",
-    error: false,
     disabled: false,
-    focused: false,
+    required: true,
 };
 
 export const Filled = Template.bind({});
@@ -24,10 +29,8 @@ export const Filled = Template.bind({});
 Filled.args = {
     label: "Input new text",
     variant: "filled",
-    error: false,
     disabled: false,
     required: true,
-    focused: false,
 };
 
 export const Outlined = Template.bind({});
@@ -35,8 +38,6 @@ export const Outlined = Template.bind({});
 Outlined.args = {
     label: "Input new text",
     variant: "outlined",
-    error: false,
     disabled: false,
     required: true,
-    focused: false,
 };
