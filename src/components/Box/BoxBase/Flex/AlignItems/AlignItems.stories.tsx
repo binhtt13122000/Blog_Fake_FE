@@ -19,7 +19,6 @@ export const DefaultBox: React.FC = (props) => {
                 p={2}
                 px={3}
                 width="fit-content"
-                height={1}
                 overflow="hidden"
                 borderRadius={{ length: 24, unit: "px" }}
             >
@@ -30,7 +29,6 @@ export const DefaultBox: React.FC = (props) => {
                 p={2}
                 px={3}
                 width="fit-content"
-                height={1}
                 overflow="hidden"
                 borderRadius={{ length: 24, unit: "px" }}
             >
