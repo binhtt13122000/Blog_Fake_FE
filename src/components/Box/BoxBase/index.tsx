@@ -46,6 +46,10 @@ export interface BoxBaseProps extends MaterialBoxProps {
             | "outset";
     };
     borderRadius?: { length: number; unit: "px" | "%" };
+    borderTopLeftRadius?: { length: number; unit: "px" | "%" };
+    borderTopRightRadius?: { length: number; unit: "px" | "%" };
+    borderBottomRightRadius?: { length: number; unit: "px" | "%" };
+    borderBottomLeftRadius?: { length: number; unit: "px" | "%" };
     margin?: {
         value: number;
         unit?: "%";
@@ -130,6 +134,10 @@ const BoxBase = (props: BoxBaseProps) => {
         typeColor = "main",
         border = "initial",
         borderRadius = "initial",
+        borderTopLeftRadius = "initial",
+        borderTopRightRadius = "initial",
+        borderBottomRightRadius = "initial",
+        borderBottomLeftRadius = "initial",
         margin = "initial",
         marginTop = "initial",
         marginRight = "initial",
@@ -181,6 +189,22 @@ const BoxBase = (props: BoxBaseProps) => {
             : `${maxHeight}px`;
 
     const borderRads = borderRadius === "initial" ? "" : borderRadius.length + borderRadius.unit;
+    const borderTopLeftRads =
+        borderTopLeftRadius === "initial"
+            ? ""
+            : borderTopLeftRadius.length + borderTopLeftRadius.unit;
+    const borderTopRightRads =
+        borderTopRightRadius === "initial"
+            ? ""
+            : borderTopRightRadius.length + borderTopRightRadius.unit;
+    const borderBottomRightRads =
+        borderBottomRightRadius === "initial"
+            ? ""
+            : borderBottomRightRadius.length + borderBottomRightRadius.unit;
+    const borderBottomLeftRads =
+        borderBottomLeftRadius === "initial"
+            ? ""
+            : borderBottomLeftRadius.length + borderBottomLeftRadius.unit;
 
     const borderAttr = border === "initial" ? "" : `${border.length}px ${border.style}`;
 
@@ -278,6 +302,12 @@ const BoxBase = (props: BoxBaseProps) => {
             marginBottom={marBottom}
             marginLeft={marLeft}
             borderRadius={borderRads}
+            style={{
+                borderTopLeftRadius: borderTopLeftRads,
+                borderTopRightRadius: borderTopRightRads,
+                borderBottomRightRadius: borderBottomRightRads,
+                borderBottomLeftRadius: borderBottomLeftRads,
+            }}
             flexBasis={flexBasisAttr}
             {...rest}
         >

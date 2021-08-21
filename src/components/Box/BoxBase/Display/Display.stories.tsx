@@ -20,6 +20,9 @@ export const Display: React.FC = (props) => {
                 width="fit-content"
                 overflow="hidden"
                 borderRadius={{ length: 24, unit: "px" }}
+                borderTopLeftRadius={{ length: 10, unit: "px" }}
+                borderTopRightRadius={{ length: 50, unit: "%" }}
+                borderBottomRightRadius={{ length: 50, unit: "%" }}
             >
                 BoxBase1
             </BoxBase>
