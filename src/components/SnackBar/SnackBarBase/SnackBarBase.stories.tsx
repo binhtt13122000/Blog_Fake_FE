@@ -61,7 +61,7 @@ Info.args = {
 export const Success = Template.bind({});
 
 Success.args = {
-    message: "SnackBar with text info",
+    message: "SnackBar with text success",
     autoHideDuration: 5000,
     anchorOrigin: {
         horizontal: "center",
@@ -76,7 +76,7 @@ Success.args = {
 export const Warning = Template.bind({});
 
 Warning.args = {
-    message: "SnackBar with text info",
+    message: "SnackBar with text warning",
     autoHideDuration: 5000,
     anchorOrigin: {
         horizontal: "center",
@@ -91,7 +91,7 @@ Warning.args = {
 export const Error = Template.bind({});
 
 Error.args = {
-    message: "SnackBar with text info",
+    message: "SnackBar with text error",
     autoHideDuration: 5000,
     anchorOrigin: {
         horizontal: "center",
