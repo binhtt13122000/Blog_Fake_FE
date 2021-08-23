@@ -1,7 +1,7 @@
 import { Alert as MaterialAlert, AlertProps as MaterialAlertProps } from "@material-ui/lab";
 
 export interface AlertBaseProps extends MaterialAlertProps {
-    message: string;
+    message?: string;
 }
 
 const AlertBase = (props: AlertBaseProps) => {
