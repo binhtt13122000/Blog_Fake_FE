@@ -12,7 +12,7 @@ export default {
             control: { type: "select" },
         },
         variant: {
-            options: ["indeterminate", "determinate"],
+            options: ["indeterminate", "determinate", "buffer"],
             control: { type: "select" },
         },
     },
