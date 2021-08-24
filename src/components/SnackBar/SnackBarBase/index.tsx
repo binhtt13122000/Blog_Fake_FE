@@ -13,6 +13,7 @@ export interface SnackBarBaseProps extends MaterialSnackBarProps {
     variant?: "filled" | "outlined" | "standard";
     severity?: "success" | "warning" | "info" | "error";
     message?: string;
+    autoHideDuration?: number;
     handleClose?: (
         event: React.SyntheticEvent<Element, Event>,
         reason?: SnackbarCloseReason

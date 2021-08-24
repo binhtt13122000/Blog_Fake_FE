@@ -9,10 +9,11 @@ import useSnackBar from "./hooks/index";
 import { Story } from "@storybook/react";
 
 const SnackBarHooks = (props: SnackBarBaseProps) => {
+    const { message: msg, autoHideDuration, ...rest } = props;
     const { isActive, timeHide, message, openSnackBar, handleClose } = useSnackBar();
 
-    const _showSnackbarHandler = (msg = "This is text") => {
-        openSnackBar(msg);
+    const _showSnackbarHandler = (msg = "This is text", timeHide: number | undefined) => {
+        openSnackBar(msg, timeHide);
     };
 
     return (
@@ -26,13 +27,13 @@ const SnackBarHooks = (props: SnackBarBaseProps) => {
                 alignItems="center"
             >
                 <ButtonBase
-                    onClick={_showSnackbarHandler.bind(this, props.message)}
+                    onClick={_showSnackbarHandler.bind(this, msg, autoHideDuration)}
                     variant="contained"
                 >
                     Click To Open SnackBar
                 </ButtonBase>
                 <ButtonBase
-                    onClick={_showSnackbarHandler.bind(this, "Another SnackBar")}
+                    onClick={_showSnackbarHandler.bind(this, "Another SnackBar", autoHideDuration)}
                     variant="contained"
                 >
                     Click To Open Another SnackBar
@@ -43,7 +44,7 @@ const SnackBarHooks = (props: SnackBarBaseProps) => {
                 open={isActive}
                 handleClose={handleClose}
                 autoHideDuration={timeHide}
-                {...props}
+                {...rest}
             />
         </React.Fragment>
     );
@@ -89,6 +90,7 @@ Warning.args = {
         horizontal: "center",
         vertical: "bottom",
     },
+    autoHideDuration: 8000,
     variant: "filled",
     elevation: 8,
     severity: "warning",
@@ -99,7 +101,7 @@ export const Error = Template.bind({});
 
 Error.args = {
     message: "SnackBar with text error",
-    autoHideDuration: 5000,
+    autoHideDuration: 2000,
     anchorOrigin: {
         horizontal: "center",
         vertical: "bottom",
