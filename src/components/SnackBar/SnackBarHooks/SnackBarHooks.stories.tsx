@@ -2,58 +2,42 @@ import React from "react";
 
 import BoxBase from "../../Box/BoxBase/index";
 import ButtonBase from "../../Button/ButtonBase/index";
-import CustomizedSnackbars from "../SnackBarBase/index";
 import { SnackBarBaseProps } from "../SnackBarBase/index";
-import useSnackBar from "./hooks/index";
+import { SnackBarProvider, useSnackBar } from "./hooks/index";
 
-import { Story } from "@storybook/react";
+import { Meta, Story } from "@storybook/react";
 
 const SnackBarHooks = (props: SnackBarBaseProps) => {
-    const { message: msg, autoHideDuration, ...rest } = props;
-    const { isActive, timeHide, message, openSnackBar, handleClose } = useSnackBar();
-
-    const _showSnackbarHandler = (msg = "This is text", timeHide: number | undefined) => {
-        openSnackBar(msg, timeHide);
-    };
-
+    const { showSnackBar } = useSnackBar();
     return (
-        <React.Fragment>
-            <BoxBase
-                width={1}
-                height={100}
-                bgcolor="secondary"
-                display="flex"
-                justifyContent="space-evenly"
-                alignItems="center"
-            >
-                <ButtonBase
-                    onClick={_showSnackbarHandler.bind(this, msg, autoHideDuration)}
-                    variant="contained"
-                >
-                    Click To Open SnackBar
-                </ButtonBase>
-                <ButtonBase
-                    onClick={_showSnackbarHandler.bind(this, "Another SnackBar", autoHideDuration)}
-                    variant="contained"
-                >
-                    Click To Open Another SnackBar
-                </ButtonBase>
-            </BoxBase>
-            <CustomizedSnackbars
-                message={message}
-                open={isActive}
-                handleClose={handleClose}
-                autoHideDuration={timeHide}
-                {...rest}
-            />
-        </React.Fragment>
+        <BoxBase
+            width={1}
+            height={100}
+            bgcolor="secondary"
+            display="flex"
+            justifyContent="space-evenly"
+            alignItems="center"
+        >
+            <ButtonBase onClick={() => showSnackBar(props)} variant="contained">
+                Click To Open SnackBar
+            </ButtonBase>
+        </BoxBase>
     );
 };
 
 export default {
     title: "Components/SnackBar/SnackBarHooks",
     component: SnackBarHooks,
-};
+    decorators: [
+        (Story) => {
+            return (
+                <SnackBarProvider>
+                    <Story />
+                </SnackBarProvider>
+            );
+        },
+    ],
+} as Meta;
 
 const Template: Story<SnackBarBaseProps> = (args) => <SnackBarHooks {...args} />;
 
