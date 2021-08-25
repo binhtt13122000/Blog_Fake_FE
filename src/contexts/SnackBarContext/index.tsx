@@ -1,8 +1,9 @@
 import React, { createContext, useContext } from "react";
 
+import CustomizedSnackbars, {
+    SnackBarBaseProps,
+} from "../../components/SnackBar/SnackBarBase/index";
 import { SnackbarCloseReason } from "@material-ui/core";
-
-import CustomizedSnackbars, { SnackBarBaseProps } from "../../SnackBar/SnackBarBase";
 
 type SnackBarContextActions = {
     showSnackBar: (props: SnackBarBaseProps) => void;

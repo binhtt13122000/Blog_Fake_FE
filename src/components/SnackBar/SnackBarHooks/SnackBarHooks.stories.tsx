@@ -1,8 +1,8 @@
 import React from "react";
 
+import { SnackBarProvider, useSnackBar } from "../../../contexts/SnackBarContext/index";
 import BoxBase from "../../Box/BoxBase/index";
 import ButtonBase from "../../Button/ButtonBase/index";
-import { SnackBarProvider, useSnackBar } from "../../ComponentContext/SnackBarContext/index";
 import { SnackBarBaseProps } from "../SnackBarBase/index";
 
 import { Meta, Story } from "@storybook/react";
