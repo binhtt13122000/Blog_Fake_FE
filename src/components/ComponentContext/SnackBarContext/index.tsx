@@ -1,9 +1,12 @@
 import React, { createContext, useContext } from "react";
 
-import CustomizedSnackbars, { SnackBarBaseProps } from "../../SnackBarBase";
+import { SnackbarCloseReason } from "@material-ui/core";
+
+import CustomizedSnackbars, { SnackBarBaseProps } from "../../SnackBar/SnackBarBase";
 
 type SnackBarContextActions = {
     showSnackBar: (props: SnackBarBaseProps) => void;
+    onClose?: (event: React.SyntheticEvent<Element, Event>, reason?: SnackbarCloseReason) => void;
 };
 
 const SnackBarContext = createContext({} as SnackBarContextActions);
@@ -29,7 +32,10 @@ const SnackBarProvider: React.FC<SnackBarContextProviderProps> = ({ children }) 
         setPropsSnackBar(rest);
     };
 
-    const handleClose = () => {
+    const onClose = (event: React.SyntheticEvent<Element, Event>, reason?: SnackbarCloseReason) => {
+        if (reason === "clickaway") {
+            return;
+        }
         setOpen(false);
     };
 
@@ -39,7 +45,7 @@ const SnackBarProvider: React.FC<SnackBarContextProviderProps> = ({ children }) 
                 open={open}
                 message={message}
                 autoHideDuration={timeHide}
-                onClose={handleClose}
+                onClose={onClose}
                 {...propsSnackBar}
             />
             {children}

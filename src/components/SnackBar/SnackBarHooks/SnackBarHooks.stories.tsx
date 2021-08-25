@@ -2,8 +2,8 @@ import React from "react";
 
 import BoxBase from "../../Box/BoxBase/index";
 import ButtonBase from "../../Button/ButtonBase/index";
+import { SnackBarProvider, useSnackBar } from "../../ComponentContext/SnackBarContext/index";
 import { SnackBarBaseProps } from "../SnackBarBase/index";
-import { SnackBarProvider, useSnackBar } from "./hooks/index";
 
 import { Meta, Story } from "@storybook/react";
 
@@ -18,7 +18,7 @@ const SnackBarHooks = (props: SnackBarBaseProps) => {
             justifyContent="space-evenly"
             alignItems="center"
         >
-            <ButtonBase onClick={() => showSnackBar(props)} variant="contained">
+            <ButtonBase onClick={() => showSnackBar({ ...props })} variant="contained">
                 Click To Open SnackBar
             </ButtonBase>
         </BoxBase>
