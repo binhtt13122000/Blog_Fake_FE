@@ -10,7 +10,6 @@ import { Story } from "@storybook/react";
 export const DefaultSnackBar = (props: SnackBarBaseProps) => {
     const { message = "This is the text", ...rest } = props;
     const [open, setOpen] = useState(false);
-    console.log(open);
     const handleClick = () => {
         setOpen(true);
     };
@@ -29,14 +28,14 @@ export const DefaultSnackBar = (props: SnackBarBaseProps) => {
             <ButtonBase onClick={handleClick} variant="contained" color="primary">
                 Button
             </ButtonBase>
-            <SnackBarBase open={open} handleClose={handleClose} message={message} {...rest} />
+            <SnackBarBase open={open} onClose={handleClose} message={message} {...rest} />
         </React.Fragment>
     );
 };
 
 //👇 This default export determines where your story goes in the story list
 export default {
-    title: "Components/SnackBarBase",
+    title: "Components/SnackBar/SnackBarBase",
     component: DefaultSnackBar,
 };
 

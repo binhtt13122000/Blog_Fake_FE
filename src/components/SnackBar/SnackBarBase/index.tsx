@@ -13,10 +13,8 @@ export interface SnackBarBaseProps extends MaterialSnackBarProps {
     variant?: "filled" | "outlined" | "standard";
     severity?: "success" | "warning" | "info" | "error";
     message?: string;
-    handleClose?: (
-        event: React.SyntheticEvent<Element, Event>,
-        reason?: SnackbarCloseReason
-    ) => void;
+    autoHideDuration?: number;
+    onClose?: (event: React.SyntheticEvent<Element, Event>, reason?: SnackbarCloseReason) => void;
 }
 
 export default function CustomizedSnackbars(props: SnackBarBaseProps) {
@@ -25,13 +23,13 @@ export default function CustomizedSnackbars(props: SnackBarBaseProps) {
         elevation = 6,
         variant = "standard",
         message,
-        handleClose,
+        onClose,
         ...rest
     } = props;
     return (
-        <MaterialSnackBar autoHideDuration={6000} onClose={handleClose} {...rest}>
+        <MaterialSnackBar autoHideDuration={6000} onClose={onClose} {...rest}>
             <AlertBase
-                onClose={handleClose}
+                onClose={onClose}
                 severity={severity}
                 variant={variant}
                 elevation={elevation}
