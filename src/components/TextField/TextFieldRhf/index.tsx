@@ -6,10 +6,10 @@ import {
 } from "@material-ui/core";
 
 export interface TextFieldBaseProps extends MaterialTextFieldProps {
-    errorMessage: string;
-    inputRef: React.Ref<HTMLInputElement>;
+    errorMessage?: string;
+    inputRef?: React.Ref<HTMLInputElement>;
 }
-export const TextFieldRhf = React.forwardRef<HTMLInputElement, TextFieldBaseProps>(
+const TextFieldRhf = React.forwardRef<HTMLInputElement, TextFieldBaseProps>(
     (props: TextFieldBaseProps) => {
         const { errorMessage, inputRef, ...rest } = props;
         const isError = Boolean(errorMessage);
@@ -23,3 +23,5 @@ export const TextFieldRhf = React.forwardRef<HTMLInputElement, TextFieldBaseProp
         );
     }
 );
+
+export default TextFieldRhf;

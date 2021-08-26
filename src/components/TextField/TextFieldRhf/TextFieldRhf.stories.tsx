@@ -1,6 +1,6 @@
 import { SubmitHandler, useForm } from "react-hook-form";
 
-import { TextFieldBaseProps, TextFieldRhf } from ".";
+import TextFieldRhf, { TextFieldBaseProps } from ".";
 import ButtonBase from "../../Button/ButtonBase/index";
 
 import { Story } from "@storybook/react";
