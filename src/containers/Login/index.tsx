@@ -114,7 +114,7 @@ const Login = () => {
                         <VerifiedUserOutlined />
                     </Avatar>
                     <Typography component="h1" variant="h5">
-                        Đăng nhập
+                        Đăng Nhập
                     </Typography>
                     <form
                         className={classes.form}
