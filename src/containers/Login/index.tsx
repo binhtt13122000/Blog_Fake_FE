@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 
 import { useForm } from "react-hook-form";
 
@@ -12,6 +12,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import VerifiedUserOutlined from "@material-ui/icons/VerifiedUserOutlined";
 
 import Images from "../../assets/images/undraw_Blogging.svg";
+import { AuthenticateContext } from "../../contexts/Authenticate/Login";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -71,19 +72,17 @@ const useStyles = makeStyles((theme) => ({
 
 const Login = () => {
     const classes = useStyles();
-    const [isLoading, setIsLoading] = useState(false);
+    const { isLoading, login } = useContext(AuthenticateContext);
     const {
         register,
         handleSubmit,
         clearErrors,
+        getValues,
         formState: { errors },
     } = useForm();
 
     const submitHandler = () => {
-        setIsLoading(true);
-        setTimeout(() => {
-            setIsLoading(false);
-        }, 5000);
+        login(getValues("email"), getValues("password"));
         clearErrors();
     };
     const { ref: inputEmailRef, ...inputEmailProps } = register("email", {
@@ -152,10 +151,11 @@ const Login = () => {
                             variant="contained"
                             color="primary"
                             className={classes.submit}
+                            disabled={isLoading}
                             size="large"
                         >
                             {isLoading ? (
-                                <CircularProgressBase variant="indeterminate" color="inherit" />
+                                <CircularProgressBase variant="indeterminate" color="primary" />
                             ) : (
                                 "Đăng Nhập"
                             )}
