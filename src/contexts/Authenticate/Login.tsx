@@ -1,53 +1,25 @@
 import React, { createContext, useState } from "react";
 
-import Axios from "axios";
-
-export type AuthenticationState = {
+export type AuthenticationActions = {
     isLoading: boolean;
-    login: (email: string, password: string) => void;
+    handleLoading: (check: boolean) => void;
 };
 
-const contextDefaultValues: AuthenticationState = {
+export const AuthenticateContext = createContext<AuthenticationActions>({
     isLoading: false,
-    login: () => {},
-};
-
-export const AuthenticateContext = createContext<AuthenticationState>(contextDefaultValues);
+    handleLoading: () => {},
+});
 
 const AuthenticateProvider: React.FC = ({ children }) => {
-    const [isLoading, setIsLoading] = useState<boolean>(contextDefaultValues.isLoading);
-    const headers = {
-        "Content-Type": "application/json;",
-        "Access-Control-Allow-Origin": "*",
+    const [isLoading, setIsLoading] = useState<boolean>(false);
+    const handleLoading = (check: boolean) => {
+        setIsLoading(check);
     };
-    const login = (email: string, password: string) => {
-        console.log(email);
-        setIsLoading(true);
-        Axios({
-            url: `http://localhost:8082/api/login`,
-            method: "POST",
-            headers: {
-                ...headers,
-            },
-            data: { email: email, password: password },
-        })
-            .then((res) => {
-                setIsLoading(false);
-                if (res.status === 200) {
-                    console.log(res.data);
-                }
-            })
-            .catch((err) => {
-                setIsLoading(false);
-                console.log(err);
-            });
-    };
-
     return (
         <AuthenticateContext.Provider
             value={{
                 isLoading,
-                login,
+                handleLoading,
             }}
         >
             {children}
