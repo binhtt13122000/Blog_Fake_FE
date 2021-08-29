@@ -12,8 +12,10 @@ export const AuthenticateContext = createContext<AuthenticationActions>({
 
 const AuthenticateProvider: React.FC = ({ children }) => {
     const [isLoading, setIsLoading] = useState<boolean>(false);
+
     const handleLoading = (check: boolean) => {
-        setIsLoading(check);
+        let checked = check;
+        setIsLoading(checked);
     };
     return (
         <AuthenticateContext.Provider
