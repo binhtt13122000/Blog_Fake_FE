@@ -13,7 +13,7 @@ import useAuth from "../../../hooks/Authenticate";
 import Layout from "../Layout/index";
 import { useStyles } from "../makeStyle";
 
-const Register: React.FC = () => {
+const Register = () => {
     const classes = useStyles();
     const history = useHistory();
     const { isLoading, authenticate } = useAuth();

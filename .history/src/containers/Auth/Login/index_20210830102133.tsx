@@ -13,7 +13,7 @@ import useAuth from "../../../hooks/Authenticate";
 import Layout from "../Layout/index";
 import { useStyles } from "../makeStyle";
 
-const Login: React.FC = () => {
+const Login = () => {
     const classes = useStyles();
     const { isLoading, authenticate } = useAuth();
     const history = useHistory();

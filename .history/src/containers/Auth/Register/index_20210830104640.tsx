@@ -13,7 +13,7 @@ import useAuth from "../../../hooks/Authenticate";
 import Layout from "../Layout/index";
 import { useStyles } from "../makeStyle";
 
-const Register: React.FC = () => {
+const Register = () => {
     const classes = useStyles();
     const history = useHistory();
     const { isLoading, authenticate } = useAuth();
@@ -68,7 +68,7 @@ const Register: React.FC = () => {
     const { ref: phoneNumberRef, ...phoneNumberProps } = register("phoneNumber", {
         required: "Số điện thoại không được để trống",
         validate: (value) =>
-            new RegExp(/([+84|84|0]+(3|5|7|8|9|1[2|6|8|9]))+([0-9]{8})\b/).test(value) ||
+            new RegExp(/([\+84|84|0]+(3|5|7|8|9|1[2|6|8|9]))+([0-9]{8})\b/).test(value) ||
             "Số điện thoại không hợp lệ",
     });
     return (

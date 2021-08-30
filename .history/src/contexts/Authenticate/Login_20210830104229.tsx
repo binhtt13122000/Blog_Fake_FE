@@ -7,14 +7,10 @@ export type AuthenticationActions = {
 
 export const AuthenticateContext = createContext<AuthenticationActions>({
     isLoading: false,
-    handleLoading: (check) => {},
+    handleLoading: () => {},
 });
 
-const AuthenticateProvider: React.FC<{ children?: React.ReactNode }> = ({
-    children,
-}: {
-    children?: React.ReactNode;
-}) => {
+const AuthenticateProvider: React.FC = ({ children }) => {
     const [isLoading, setIsLoading] = useState<boolean>(false);
 
     const handleLoading = (check: boolean) => {
