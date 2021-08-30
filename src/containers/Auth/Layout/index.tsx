@@ -8,7 +8,11 @@ import { VerifiedUserOutlined } from "@material-ui/icons";
 
 import { useStyles } from "../makeStyle";
 
-const Layout: React.FC<{ children?: React.ReactNode }> = ({ children }) => {
+const Layout: React.FC<{ children?: React.ReactNode }> = ({
+    children,
+}: {
+    children?: React.ReactNode;
+}) => {
     const classes = useStyles();
     return (
         <BoxBase className={classes.root} display="flex">
