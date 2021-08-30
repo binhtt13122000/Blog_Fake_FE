@@ -8,7 +8,7 @@ import { VerifiedUserOutlined } from "@material-ui/icons";
 
 import { useStyles } from "../makeStyle";
 
-const Layout: React.FC = (props) => {
+const Layout: React.FC = ({ children }) => {
     const classes = useStyles();
     return (
         <BoxBase className={classes.root} display="flex">
@@ -27,7 +27,7 @@ const Layout: React.FC = (props) => {
                         <Avatar className={classes.avatar}>
                             <VerifiedUserOutlined />
                         </Avatar>
-                        {props.children}
+                        {children}
                         <BoxBase marginTop={{ value: 2 }} width={1}>
                             <Typography variant="body2" color="textSecondary" align="center">
                                 {"Copyright © "}
