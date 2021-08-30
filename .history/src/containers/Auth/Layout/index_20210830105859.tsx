@@ -8,6 +8,9 @@ import { VerifiedUserOutlined } from "@material-ui/icons";
 
 import { useStyles } from "../makeStyle";
 
+export type Type = {
+    children: React.ReactNode;
+};
 const Layout: React.FC<{ children: React.ReactNode }> = (props) => {
     const classes = useStyles();
     return (
