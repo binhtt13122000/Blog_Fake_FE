@@ -4,15 +4,15 @@ import Axios from "axios";
 
 import { AuthenticateContext } from "../contexts/Authenticate/Login";
 
-export type AuthData = {
+interface AuthData {
     isLoading: boolean;
     authenticate: (data: Record<string, unknown>, isLogin: boolean) => void;
-};
+}
 const headers = {
     "Content-Type": "application/json; charset=utf-8",
     "Access-Control-Allow-Origin": "*",
 };
-const useAuth = (): AuthData => {
+const useAuth = () => {
     const { isLoading, handleLoading } = useContext(AuthenticateContext);
     const authenticate = useCallback(
         (data: Record<string, unknown>, isLogin: boolean) => {

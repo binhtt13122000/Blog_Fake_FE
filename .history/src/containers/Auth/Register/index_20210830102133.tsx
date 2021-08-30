@@ -68,7 +68,7 @@ const Register = () => {
     const { ref: phoneNumberRef, ...phoneNumberProps } = register("phoneNumber", {
         required: "Số điện thoại không được để trống",
         validate: (value) =>
-            new RegExp(/([\+84|84|0]+(3|5|7|8|9|1[2|6|8|9]))+([0-9]{8})\b/).test(value) ||
+            /([\+84|84|0]+(3|5|7|8|9|1[2|6|8|9]))+([0-9]{8})\b/.test(value) ||
             "Số điện thoại không hợp lệ",
     });
     return (
