@@ -14,8 +14,7 @@ const AuthenticateProvider: React.FC = ({ children }) => {
     const [isLoading, setIsLoading] = useState<boolean>(false);
 
     const handleLoading = (check: boolean) => {
-        let checked = check;
-        setIsLoading(checked);
+        setIsLoading(check);
     };
     return (
         <AuthenticateContext.Provider
