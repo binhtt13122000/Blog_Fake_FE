@@ -7,7 +7,7 @@ export type AuthenticationActions = {
 
 export const AuthenticateContext = createContext<AuthenticationActions>({
     isLoading: false,
-    handleLoading: (check) => {},
+    handleLoading: () => {},
 });
 
 const AuthenticateProvider: React.FC<{ children?: React.ReactNode }> = ({
