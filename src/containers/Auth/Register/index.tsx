@@ -85,9 +85,7 @@ const Register: React.FC = () => {
                 <TextFieldRhf
                     variant="outlined"
                     margin="normal"
-                    style={{
-                        width: "48%",
-                    }}
+                    className={classes.textField}
                     required
                     autoFocus
                     id="firstName"
@@ -99,10 +97,7 @@ const Register: React.FC = () => {
                 <TextFieldRhf
                     variant="outlined"
                     margin="normal"
-                    style={{
-                        width: "48%",
-                        marginLeft: "4%",
-                    }}
+                    className={classes.textField}
                     required
                     id="lastName"
                     label="Họ"
@@ -135,9 +130,7 @@ const Register: React.FC = () => {
                 <TextFieldRhf
                     variant="outlined"
                     margin="normal"
-                    style={{
-                        width: "48%",
-                    }}
+                    className={classes.textField}
                     required
                     label="Mật khẩu"
                     type="password"
@@ -149,10 +142,7 @@ const Register: React.FC = () => {
                 <TextFieldRhf
                     variant="outlined"
                     margin="normal"
-                    style={{
-                        width: "48%",
-                        marginLeft: "4%",
-                    }}
+                    className={classes.textField}
                     required
                     type="password"
                     id="confirmPassword"

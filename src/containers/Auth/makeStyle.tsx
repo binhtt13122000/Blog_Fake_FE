@@ -7,6 +7,13 @@ export const useStyles = makeStyles((theme) => ({
         height: "100vh",
         width: "100%",
         position: "relative",
+        [theme.breakpoints.down("xs")]: {
+            height: "fit-content",
+            minHeight: "100vh",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+        },
     },
     image: {
         backgroundImage: `url(${Images})`,
@@ -40,7 +47,7 @@ export const useStyles = makeStyles((theme) => ({
 
         [theme.breakpoints.down("xs")]: {
             maxWidth: "100%",
-            padding: theme.spacing(4),
+            padding: theme.spacing(2),
             margin: "initial",
             borderRadius: "initial",
         },
@@ -52,8 +59,19 @@ export const useStyles = makeStyles((theme) => ({
     form: {
         width: "100%",
         marginTop: theme.spacing(1),
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+        flexWrap: "wrap",
     },
     submit: {
         margin: theme.spacing(3, 0, 2),
+    },
+    textField: {
+        width: "48%",
+        [theme.breakpoints.down("xs")]: {
+            width: "100%",
+            maxWidth: "100%",
+        },
     },
 }));
