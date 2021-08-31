@@ -22,7 +22,7 @@ const useStyles = makeStyles({
         width: "auto",
     },
 });
-export const DefaultDrawerBase: React.FC<DrawerBaseProps> = (props: DrawerBaseProps) => {
+export const DefaultDrawerBase = (props: DrawerBaseProps) => {
     const classes = useStyles();
     const { anchor = "left", ...rest } = props;
     const list = (anchor: Anchor) => (

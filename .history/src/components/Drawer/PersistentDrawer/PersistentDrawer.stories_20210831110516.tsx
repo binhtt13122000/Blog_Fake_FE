@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme: Theme) =>
         // },
     })
 );
-export const DefaultDrawerBase: React.FC<DrawerBaseProps> = (props: DrawerBaseProps) => {
+export const DefaultDrawerBase = (props: DrawerBaseProps) => {
     const classes = useStyles();
     const theme = useTheme();
     const { anchor = "left", variant = "persistent", ...rest } = props;

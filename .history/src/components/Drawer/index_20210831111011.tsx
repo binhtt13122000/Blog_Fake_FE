@@ -1,6 +1,6 @@
 import { Drawer as MaterialDrawer, DrawerProps as MaterialDrawerProps } from "@material-ui/core";
 
-export type DrawerBaseProps = MaterialDrawerProps;
+export interface DrawerBaseProps extends MaterialDrawerProps {}
 
 export type Anchor = "top" | "right" | "bottom" | "left";
 
