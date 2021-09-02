@@ -1,5 +1,6 @@
-import ButtonBase from "../../components/Button/ButtonBase";
+// import ButtonBase from "../../components/Button/ButtonBase";
+import ManageUser from "../Admin/ManageUser";
 
 export const App = () => {
-    return <ButtonBase variant="outlined">Hello World</ButtonBase>;
+    return <ManageUser></ManageUser>;
 };
