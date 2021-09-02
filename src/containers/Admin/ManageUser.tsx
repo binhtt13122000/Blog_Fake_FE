@@ -3,11 +3,10 @@ import React from "react";
 import MaterialTable from "material-table";
 
 import DashBoardMain from "../../components/DashBoardMain";
-import { createStyles, CssBaseline, makeStyles, Theme, Typography } from "@material-ui/core";
+import { createStyles, CssBaseline, makeStyles, Typography } from "@material-ui/core";
 
 const heightNavBar = 60;
-const spacing = 24;
-const useStyles = makeStyles((theme: Theme) =>
+const useStyles = makeStyles(() =>
     createStyles({
         root: {
             display: "flex",
@@ -20,13 +19,10 @@ const useStyles = makeStyles((theme: Theme) =>
     })
 );
 
-const ManageUser = () => {
+const ManageUser: React.FC = () => {
     const classes = useStyles();
-    const [isOpen, setIsOpen] = React.useState(false);
     const [selectedRow, setSelectedRow] = React.useState<number | undefined>();
-    const openMobileNav = () => {
-        setIsOpen((prev) => !prev);
-    };
+
     return (
         <div className={classes.root}>
             <CssBaseline />
@@ -246,18 +242,6 @@ const ManageUser = () => {
                             role: "Admin",
                         },
                     ]}
-                    // actions={[
-                    //     {
-                    //         icon: "save",
-                    //         tooltip: "Save User",
-                    //         onClick: (event, rowData) => alert("You saved "),
-                    //     },
-                    //     (rowData) => ({
-                    //         icon: "delete",
-                    //         tooltip: "Delete User",
-                    //         onClick: (event, rowData) => confirm("You want to delete "),
-                    //     }),
-                    // ]}
                     onRowClick={(evt, selectedRow) => setSelectedRow(selectedRow?.id)}
                     options={{
                         loadingType: "overlay",
@@ -277,9 +261,9 @@ const ManageUser = () => {
                         },
                     }}
                     editable={{
-                        onRowUpdate: (newData, oldData) => new Promise((resolve) => {}),
-                        onRowAdd: (newData) => new Promise((resolve) => {}),
-                        onRowDelete: (oldData) => new Promise((resolve) => {}),
+                        onRowUpdate: () => new Promise(() => {}),
+                        onRowAdd: () => new Promise(() => {}),
+                        onRowDelete: () => new Promise(() => {}),
                     }}
                 />
             </div>
