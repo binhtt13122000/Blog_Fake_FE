@@ -7,7 +7,7 @@ import useStyles from "./GlobalStyles";
 
 type TypeNavItem = {
     title: string;
-    icon: OverridableComponent<SvgIconTypeMap<{}, "svg">>;
+    icon: OverridableComponent<SvgIconTypeMap<Record<string, unknown>, "svg">>;
 };
 const NavItem: React.FC<TypeNavItem> = ({ title, icon: Icon, ...rest }: TypeNavItem) => {
     const classes = useStyles();
