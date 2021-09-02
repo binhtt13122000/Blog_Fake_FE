@@ -261,9 +261,18 @@ const ManageUser: React.FC = () => {
                         },
                     }}
                     editable={{
-                        onRowUpdate: () => new Promise(() => {}),
-                        onRowAdd: () => new Promise(() => {}),
-                        onRowDelete: () => new Promise(() => {}),
+                        onRowUpdate: () =>
+                            new Promise(() => {
+                                console.log(123);
+                            }),
+                        onRowAdd: () =>
+                            new Promise(() => {
+                                console.log(123);
+                            }),
+                        onRowDelete: () =>
+                            new Promise(() => {
+                                console.log(123);
+                            }),
                     }}
                 />
             </div>
