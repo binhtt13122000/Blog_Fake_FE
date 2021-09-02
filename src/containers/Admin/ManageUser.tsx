@@ -3,13 +3,14 @@ import React from "react";
 import MaterialTable from "material-table";
 
 import DashBoardMain from "../../components/DashBoardMain";
-import { createStyles, CssBaseline, makeStyles, Typography } from "@material-ui/core";
+import { createStyles, CssBaseline, makeStyles, Theme, Typography } from "@material-ui/core";
 
 const heightNavBar = 60;
-const useStyles = makeStyles(() =>
+const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         root: {
             display: "flex",
+            margin: theme.spacing(3),
         },
         table: {
             marginTop: heightNavBar,
