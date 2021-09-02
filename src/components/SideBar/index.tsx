@@ -7,9 +7,15 @@ import useStyles from "../GlobalStyles";
 type SideBarType = {
     open: boolean;
     onCloseSideBar: () => void;
+    children?: React.ReactNode;
 };
 
-const SideBar: React.FC<SideBarType> = ({ children, open, onCloseSideBar, ...rest }) => {
+const SideBar: React.FC<SideBarType> = ({
+    children,
+    open,
+    onCloseSideBar,
+    ...rest
+}: SideBarType) => {
     const classes = useStyles();
 
     return (
@@ -21,6 +27,7 @@ const SideBar: React.FC<SideBarType> = ({ children, open, onCloseSideBar, ...res
                     anchor="left"
                     open={open}
                     onClose={onCloseSideBar}
+                    {...rest}
                     // classes={{
                     //     paper: classes.drawerPaper,
                     // }}
@@ -37,6 +44,7 @@ const SideBar: React.FC<SideBarType> = ({ children, open, onCloseSideBar, ...res
                     classes={{
                         paper: classes.drawerPaper,
                     }}
+                    {...rest}
                 >
                     {children}
                 </Drawer>

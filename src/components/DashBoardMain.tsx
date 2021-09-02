@@ -3,7 +3,7 @@ import React from "react";
 import DashboardSidebar from "./DashBoardSideBarLayout";
 import NavBar from "./NavBar/index";
 
-const DashBoardMain = () => {
+const DashBoardMain: React.FC = () => {
     const [open, setOpen] = React.useState(false);
     const handleOpenSideBar = () => {
         setOpen(true);

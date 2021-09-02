@@ -53,7 +53,10 @@ type DashboardSidebarType = {
     openMobile: boolean;
 };
 
-const DashboardSidebar: React.FC<DashboardSidebarType> = ({ onMobileClose, openMobile }) => {
+const DashboardSidebar: React.FC<DashboardSidebarType> = ({
+    onMobileClose,
+    openMobile,
+}: DashboardSidebarType) => {
     // const location = useLocation();
 
     // useEffect(() => {

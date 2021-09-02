@@ -9,7 +9,7 @@ type TypeNavItem = {
     title: string;
     icon: OverridableComponent<SvgIconTypeMap<{}, "svg">>;
 };
-const NavItem: React.FC<TypeNavItem> = ({ title, icon: Icon, ...rest }) => {
+const NavItem: React.FC<TypeNavItem> = ({ title, icon: Icon, ...rest }: TypeNavItem) => {
     const classes = useStyles();
     return (
         <ListItem disableGutters {...rest}>

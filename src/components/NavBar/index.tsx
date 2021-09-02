@@ -17,7 +17,7 @@ import useStyles from "../GlobalStyles";
 type Props = {
     onOpenMobileNav: () => void;
 };
-const NavBar: React.FC<Props> = ({ onOpenMobileNav }) => {
+const NavBar: React.FC<Props> = ({ onOpenMobileNav }: Props) => {
     const classes = useStyles();
     return (
         <div className={classes.root}>
