@@ -48,28 +48,28 @@ const ManageUser: React.FC = () => {
                             title: "First Name",
                             field: "firstName",
                             align: "center",
-                            emptyValue: () => <em>Null</em>,
+                            emptyValue: <em>Null</em>,
                             customFilterAndSearch: (term, rowData) => term == rowData.firstName,
                         },
                         {
                             title: "Last Name ",
                             field: "lastName",
                             align: "center",
-                            emptyValue: () => <em>Null</em>,
+                            emptyValue: <em>Null</em>,
                             customFilterAndSearch: (term, rowData) => term == rowData.lastName,
                         },
                         {
                             title: "Mobile ",
                             field: "mobile",
                             align: "center",
-                            emptyValue: () => <em>Null</em>,
+                            emptyValue: <em>Null</em>,
                             customFilterAndSearch: (term, rowData) => term == rowData.mobile,
                         },
                         {
                             title: "Email ",
                             field: "email",
                             align: "center",
-                            emptyValue: () => <em>Null</em>,
+                            emptyValue: <em>Null</em>,
                             customFilterAndSearch: (term, rowData) => term == rowData.email,
                         },
                         {
@@ -78,7 +78,7 @@ const ManageUser: React.FC = () => {
                             type: "date",
                             align: "center",
                             dateSetting: { locale: "en-GB" },
-                            emptyValue: () => <em>Null</em>,
+                            emptyValue: <em>Null</em>,
                             filtering: false,
                         },
                         {
@@ -87,7 +87,7 @@ const ManageUser: React.FC = () => {
                             type: "date",
                             align: "center",
                             dateSetting: { locale: "en-GB" },
-                            emptyValue: () => <em>Null</em>,
+                            emptyValue: <em>Null</em>,
                             filtering: false,
                         },
                         {
@@ -99,10 +99,13 @@ const ManageUser: React.FC = () => {
                             render: (rowData) => (
                                 <div
                                     style={{
-                                        background: rowData.isverify ? "green" : "red",
+                                        backgroundColor: rowData.isverify
+                                            ? "rgb(0 216 0 / 43%)"
+                                            : "rgb(255 59 59 / 25%)",
+                                        color: rowData.isverify ? "green" : "red",
+                                        fontWeight: 600,
                                         padding: "6px 4px",
                                         borderRadius: "6px",
-                                        color: "white",
                                         textAlign: "center",
                                     }}
                                 >
@@ -120,7 +123,7 @@ const ManageUser: React.FC = () => {
                                     style={{
                                         color: rowData.role === "Admin" ? "#0000ffb5" : "#008000cc",
                                         textAlign: "center",
-                                        fontWeight: 600,
+                                        fontWeight: 500,
                                     }}
                                 >
                                     {rowData.role}
@@ -178,7 +181,7 @@ const ManageUser: React.FC = () => {
                             role: "Admin",
                         },
                         {
-                            id: 8,
+                            id: 1,
                             firstName: "Danh",
                             lastName: "Pham",
                             mobile: "0902472118",
@@ -194,7 +197,7 @@ const ManageUser: React.FC = () => {
                             role: "Admin",
                         },
                         {
-                            id: 8,
+                            id: 4,
                             firstName: "Danh",
                             lastName: "Pham",
                             mobile: "0902472118",
@@ -210,7 +213,7 @@ const ManageUser: React.FC = () => {
                             role: "User",
                         },
                         {
-                            id: 8,
+                            id: 9,
                             firstName: "Danh",
                             lastName: "Pham",
                             mobile: "0902472118",
@@ -226,7 +229,7 @@ const ManageUser: React.FC = () => {
                             role: "User",
                         },
                         {
-                            id: 8,
+                            id: 6,
                             firstName: "Danh",
                             lastName: "Pham",
                             mobile: "0902472118",

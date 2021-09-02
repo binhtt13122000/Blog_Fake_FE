@@ -37,11 +37,10 @@ const useStyles = makeStyles((theme: Theme) =>
             top: heightNavBar,
             width: drawerWidth,
         },
-        list: {
-            width: 250,
-        },
         fullList: {
-            width: "auto",
+            width: "45%",
+            minWidth: drawerWidth,
+            maxWidth: drawerWidth * 1.5,
         },
         drawerHeader: {
             display: "flex",

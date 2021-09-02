@@ -22,7 +22,9 @@ const SideBar: React.FC<SideBarType> = ({
         <>
             <Hidden lgUp>
                 <Drawer
-                    className={classes.fullList}
+                    classes={{
+                        paper: classes.fullList,
+                    }}
                     variant="temporary"
                     anchor="left"
                     open={open}
