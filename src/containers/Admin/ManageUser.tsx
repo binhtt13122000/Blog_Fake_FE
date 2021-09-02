@@ -96,39 +96,46 @@ const ManageUser: React.FC = () => {
                             align: "center",
                             filtering: false,
                             lookup: { false: "Not Verified", true: "Verified" },
-                            render: (rowData) => (
-                                <div
-                                    style={{
-                                        backgroundColor: rowData.isverify
-                                            ? "rgb(0 216 0 / 43%)"
-                                            : "rgb(255 59 59 / 25%)",
-                                        color: rowData.isverify ? "green" : "red",
-                                        fontWeight: 600,
-                                        padding: "6px 4px",
-                                        borderRadius: "6px",
-                                        textAlign: "center",
-                                    }}
-                                >
-                                    {rowData.isverify ? "Verified" : "Not Verify"}
-                                </div>
-                            ),
+                            render: function changeShowDataVerify(rowData) {
+                                return (
+                                    <div
+                                        style={{
+                                            backgroundColor: rowData.isverify
+                                                ? "rgb(0 216 0 / 43%)"
+                                                : "rgb(255 59 59 / 25%)",
+                                            color: rowData.isverify ? "green" : "red",
+                                            fontWeight: 600,
+                                            padding: "6px 4px",
+                                            borderRadius: "6px",
+                                            textAlign: "center",
+                                        }}
+                                    >
+                                        {rowData.isverify ? "Verified" : "Not Verify"}
+                                    </div>
+                                );
+                            },
                         },
                         {
                             title: "Role ",
                             field: "role",
                             align: "center",
                             filtering: false,
-                            render: (rowData) => (
-                                <div
-                                    style={{
-                                        color: rowData.role === "Admin" ? "#0000ffb5" : "#008000cc",
-                                        textAlign: "center",
-                                        fontWeight: 500,
-                                    }}
-                                >
-                                    {rowData.role}
-                                </div>
-                            ),
+                            render: function changeDataShowRole(rowData) {
+                                return (
+                                    <div
+                                        style={{
+                                            color:
+                                                rowData.role === "Admin"
+                                                    ? "#0000ffb5"
+                                                    : "#008000cc",
+                                            textAlign: "center",
+                                            fontWeight: 500,
+                                        }}
+                                    >
+                                        {rowData.role}
+                                    </div>
+                                );
+                            },
                         },
                     ]}
                     data={[
