@@ -6,8 +6,8 @@ import {
 } from "@material-ui/core";
 
 export interface TextFieldBaseProps extends MaterialTextFieldProps {
-    errorMessage: string;
-    inputRef: React.Ref<HTMLInputElement>;
+    errorMessage?: string;
+    inputRef?: React.Ref<HTMLInputElement>;
 }
 export const TextFieldRhf = React.forwardRef<HTMLInputElement, TextFieldBaseProps>(
     (props: TextFieldBaseProps) => {

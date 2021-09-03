@@ -1,5 +1,6 @@
-import ButtonBase from "../../components/Button/ButtonBase";
+// import ButtonBase from "../../components/Button/ButtonBase";
+import UserProfile from "../Users/UserProfile";
 
 export const App = () => {
-    return <ButtonBase variant="outlined">Hello World</ButtonBase>;
+    return <UserProfile></UserProfile>;
 };
