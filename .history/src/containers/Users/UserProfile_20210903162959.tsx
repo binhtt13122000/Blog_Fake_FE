@@ -193,7 +193,6 @@ const UserProfile: React.FC = () => {
                                 fullWidth
                                 required
                                 disabled={!isEdit}
-                                className={classes.halfTextField}
                                 id="mobile"
                                 label="Phone Number"
                                 value="0902472118"
@@ -204,7 +203,6 @@ const UserProfile: React.FC = () => {
                                 fullWidth
                                 required
                                 disabled={!isEdit}
-                                className={classes.halfTextField}
                                 type="email"
                                 label="Email"
                                 id="email"
