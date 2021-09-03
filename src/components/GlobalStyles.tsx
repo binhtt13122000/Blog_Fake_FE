@@ -15,19 +15,8 @@ const useStyles = makeStyles((theme: Theme) =>
                 duration: theme.transitions.duration.leavingScreen,
             }),
         },
-        appBarShift: {
-            // width: `calc(100% - ${drawerWidth}px)`,
-            // marginLeft: drawerWidth,
-            transition: theme.transitions.create(["margin", "width"], {
-                easing: theme.transitions.easing.easeOut,
-                duration: theme.transitions.duration.enteringScreen,
-            }),
-        },
         menuButton: {
             marginRight: theme.spacing(2),
-        },
-        hide: {
-            display: "none",
         },
         drawer: {
             width: drawerWidth,
@@ -46,7 +35,6 @@ const useStyles = makeStyles((theme: Theme) =>
             display: "flex",
             alignItems: "center",
             padding: theme.spacing(0, 1),
-            // necessary for content to be below app bar
             ...theme.mixins.toolbar,
             justifyContent: "flex-end",
         },
@@ -59,18 +47,19 @@ const useStyles = makeStyles((theme: Theme) =>
             }),
             marginLeft: -drawerWidth,
         },
-        contentShift: {
-            transition: theme.transitions.create("margin", {
-                easing: theme.transitions.easing.easeOut,
-                duration: theme.transitions.duration.enteringScreen,
-            }),
-            marginLeft: 0,
-        },
-        button: {
+        buttonNavItem: {
+            display: "block",
+            width: "100%",
+            textAlign: "left",
             "&:hover": {
                 backgroundColor: "#efefefa8",
                 color: "#3c52b2",
             },
+        },
+        navItemInner: {
+            display: "inline-flex",
+            alignItems: "center",
+            columnGap: "10px",
         },
     })
 );

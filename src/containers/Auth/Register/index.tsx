@@ -1,21 +1,19 @@
 import React from "react";
 
 import { useForm } from "react-hook-form";
-import { useHistory } from "react-router";
 
-import BoxBase from "../../../components/Box/BoxBase/index";
 import ButtonBase from "../../../components/Button/ButtonBase/index";
+import Layout from "../../../components/Layout/Auth/index";
+import { useStyles } from "../../../components/Layout/Auth/makeStyle";
 import CircularProgressBase from "../../../components/Loading/CircularProgressBase/index";
+import SwitchAuth from "../../../components/SwitchAuth/index";
 import TextFieldRhf from "../../../components/TextField/TextFieldRhf/index";
-import { Link, Typography } from "@material-ui/core";
+import { Typography } from "@material-ui/core";
 
 import useAuth from "../../../hooks/Authenticate";
-import Layout from "../Layout/index";
-import { useStyles } from "../makeStyle";
 
 const Register: React.FC = () => {
     const classes = useStyles();
-    const history = useHistory();
     const { isLoading, authenticate } = useAuth();
     const {
         register,
@@ -85,7 +83,7 @@ const Register: React.FC = () => {
                 <TextFieldRhf
                     variant="outlined"
                     margin="normal"
-                    className={classes.textField}
+                    className={classes.halfTextField}
                     required
                     autoFocus
                     id="firstName"
@@ -97,7 +95,7 @@ const Register: React.FC = () => {
                 <TextFieldRhf
                     variant="outlined"
                     margin="normal"
-                    className={classes.textField}
+                    className={classes.halfTextField}
                     required
                     id="lastName"
                     label="Họ"
@@ -130,7 +128,7 @@ const Register: React.FC = () => {
                 <TextFieldRhf
                     variant="outlined"
                     margin="normal"
-                    className={classes.textField}
+                    className={classes.halfTextField}
                     required
                     label="Mật khẩu"
                     type="password"
@@ -142,7 +140,7 @@ const Register: React.FC = () => {
                 <TextFieldRhf
                     variant="outlined"
                     margin="normal"
-                    className={classes.textField}
+                    className={classes.halfTextField}
                     required
                     type="password"
                     id="confirmPassword"
@@ -167,18 +165,7 @@ const Register: React.FC = () => {
                     )}
                 </ButtonBase>
             </form>
-            <BoxBase textAlign="center" width={1}>
-                <Link
-                    style={{ cursor: "pointer", paddingTop: "10px", paddingBottom: "10px" }}
-                    color="primary"
-                    variant="body2"
-                    onClick={() => {
-                        history.push("/login");
-                    }}
-                >
-                    {"Đã có tài khoản? Đăng nhập"}
-                </Link>
-            </BoxBase>
+            <SwitchAuth linkDesc="Đã có tài khoản? Đăng nhập" href="/login" />
         </Layout>
     );
 };

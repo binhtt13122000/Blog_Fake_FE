@@ -13,17 +13,8 @@ const NavItem: React.FC<TypeNavItem> = ({ title, icon: Icon, ...rest }: TypeNavI
     const classes = useStyles();
     return (
         <ListItem disableGutters {...rest}>
-            <Button
-                style={{ display: "block", width: "100%", textAlign: "left" }}
-                className={classes.button}
-            >
-                <div
-                    style={{
-                        display: "inline-flex",
-                        alignItems: "center",
-                        columnGap: "10px",
-                    }}
-                >
+            <Button className={classes.buttonNavItem}>
+                <div className={classes.navItemInner}>
                     <Icon /> <span>{title}</span>
                 </div>
             </Button>

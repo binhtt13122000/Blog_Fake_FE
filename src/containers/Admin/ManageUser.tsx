@@ -3,7 +3,7 @@ import React from "react";
 import MaterialTable from "material-table";
 
 import DashBoardMain from "../../components/DashBoardMain";
-import { createStyles, CssBaseline, makeStyles, Theme, Typography } from "@material-ui/core";
+import { createStyles, makeStyles, Theme, Typography } from "@material-ui/core";
 
 const heightNavBar = 60;
 const useStyles = makeStyles((theme: Theme) =>
@@ -11,11 +11,54 @@ const useStyles = makeStyles((theme: Theme) =>
         root: {
             display: "flex",
             margin: theme.spacing(3),
+            [theme.breakpoints.down("sm")]: {
+                margin: theme.spacing(0),
+            },
         },
         table: {
             marginTop: heightNavBar,
             width: "100%",
             height: "100%",
+        },
+        tableTitle: {
+            whiteSpace: "nowrap",
+            overflow: "hidden",
+            textOverflow: "ellipsis",
+            padding: "12px 6px",
+        },
+        verified: {
+            backgroundColor: "rgb(0 216 0 / 43%)",
+            color: "green",
+            fontWeight: 600,
+            padding: "6px 4px",
+            borderRadius: "6px",
+            textAlign: "center",
+        },
+        notVerify: {
+            backgroundColor: "rgb(255 59 59 / 25%)",
+            color: "red",
+            fontWeight: 600,
+            padding: "6px 4px",
+            borderRadius: "6px",
+            textAlign: "center",
+        },
+        tagAdmin: {
+            color: "#0000ffb5",
+            textAlign: "center",
+            fontWeight: 500,
+        },
+        tagUser: {
+            color: "#008000cc",
+            textAlign: "center",
+            fontWeight: 500,
+        },
+        tagEmpty: {
+            backgroundColor: "red",
+            color: "white",
+            paddingTop: theme.spacing(1),
+            paddingBottom: theme.spacing(1),
+            borderRadius: "6px",
+            textAlign: "center",
         },
     })
 );
@@ -26,90 +69,78 @@ const ManageUser: React.FC = () => {
 
     return (
         <div className={classes.root}>
-            <CssBaseline />
             <DashBoardMain />
             <div className={classes.table}>
                 <MaterialTable
                     title={
-                        <Typography
-                            variant="h5"
-                            style={{
-                                whiteSpace: "nowrap",
-                                overflow: "hidden",
-                                textOverflow: "ellipsis",
-                                padding: "12px 6px",
-                            }}
-                        >
+                        <Typography variant="h5" className={classes.tableTitle}>
                             Users Management
                         </Typography>
                     }
                     columns={[
-                        { title: "Id", field: "id", filtering: false },
+                        { title: "Id", field: "id", filtering: false, align: "right" },
                         {
                             title: "First Name",
                             field: "firstName",
-                            align: "center",
-                            emptyValue: <em>Null</em>,
+                            align: "left",
+                            hideFilterIcon: true,
+                            emptyValue: <div className={classes.tagEmpty}>Null</div>,
                             customFilterAndSearch: (term, rowData) => term == rowData.firstName,
                         },
                         {
                             title: "Last Name ",
                             field: "lastName",
-                            align: "center",
-                            emptyValue: <em>Null</em>,
+                            align: "left",
+                            hideFilterIcon: true,
+                            emptyValue: <div className={classes.tagEmpty}>Null</div>,
                             customFilterAndSearch: (term, rowData) => term == rowData.lastName,
                         },
                         {
                             title: "Mobile ",
                             field: "mobile",
-                            align: "center",
-                            emptyValue: <em>Null</em>,
+                            align: "left",
+                            hideFilterIcon: true,
+                            emptyValue: <div className={classes.tagEmpty}>Null</div>,
                             customFilterAndSearch: (term, rowData) => term == rowData.mobile,
                         },
                         {
                             title: "Email ",
                             field: "email",
-                            align: "center",
-                            emptyValue: <em>Null</em>,
+                            align: "left",
+                            hideFilterIcon: true,
+                            emptyValue: <div className={classes.tagEmpty}>Null</div>,
                             customFilterAndSearch: (term, rowData) => term == rowData.email,
                         },
                         {
                             title: "Registered Date ",
                             field: "registeredat",
                             type: "date",
-                            align: "center",
+                            align: "left",
                             dateSetting: { locale: "en-GB" },
-                            emptyValue: <em>Null</em>,
+                            emptyValue: <div className={classes.tagEmpty}>Null</div>,
                             filtering: false,
                         },
                         {
                             title: "Updated Date ",
                             field: "updatedat",
                             type: "date",
-                            align: "center",
+                            align: "left",
                             dateSetting: { locale: "en-GB" },
-                            emptyValue: <em>Null</em>,
+                            emptyValue: <div className={classes.tagEmpty}>Null</div>,
                             filtering: false,
                         },
                         {
                             title: "Is Verify ",
                             field: "isverify",
-                            align: "center",
+                            align: "left",
                             filtering: false,
                             lookup: { false: "Not Verified", true: "Verified" },
                             render: function changeShowDataVerify(rowData) {
                                 return (
                                     <div
-                                        style={{
-                                            backgroundColor: rowData.isverify
-                                                ? "rgb(0 216 0 / 43%)"
-                                                : "rgb(255 59 59 / 25%)",
-                                            color: rowData.isverify ? "green" : "red",
-                                            fontWeight: 600,
-                                            padding: "6px 4px",
-                                            borderRadius: "6px",
-                                            textAlign: "center",
-                                        }}
+                                        className={
+                                            rowData.isverify ? classes.verified : classes.notVerify
+                                        }
                                     >
                                         {rowData.isverify ? "Verified" : "Not Verify"}
                                     </div>
@@ -119,19 +150,16 @@ const ManageUser: React.FC = () => {
                         {
                             title: "Role ",
                             field: "role",
-                            align: "center",
+                            align: "left",
                             filtering: false,
                             render: function changeDataShowRole(rowData) {
                                 return (
                                     <div
-                                        style={{
-                                            color:
-                                                rowData.role === "Admin"
-                                                    ? "#0000ffb5"
-                                                    : "#008000cc",
-                                            textAlign: "center",
-                                            fontWeight: 500,
-                                        }}
+                                        className={
+                                            rowData.role === "Admin"
+                                                ? classes.tagAdmin
+                                                : classes.tagUser
+                                        }
                                     >
                                         {rowData.role}
                                     </div>

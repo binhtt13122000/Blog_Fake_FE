@@ -1,10 +1,7 @@
 import React from "react";
 
-import clsx from "clsx";
-
 import { Badge, Hidden, IconButton, Tooltip } from "@material-ui/core";
 import AppBar from "@material-ui/core/AppBar";
-import CssBaseline from "@material-ui/core/CssBaseline";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import InputIcon from "@material-ui/icons/Input";
@@ -21,14 +18,7 @@ const NavBar: React.FC<Props> = ({ onOpenMobileNav }: Props) => {
     const classes = useStyles();
     return (
         <div className={classes.root}>
-            <CssBaseline />
-            <AppBar
-                position="fixed"
-                elevation={0}
-                // className={clsx(classes.appBar, {
-                //     [classes.appBarShift]: true,
-                // })}
-            >
+            <AppBar position="fixed" elevation={0}>
                 <Toolbar>
                     <Typography variant="h6" noWrap>
                         F-Blog
@@ -54,7 +44,7 @@ const NavBar: React.FC<Props> = ({ onOpenMobileNav }: Props) => {
                             aria-label="open drawer"
                             onClick={onOpenMobileNav}
                             edge="start"
-                            className={clsx(classes.menuButton)}
+                            className={classes.menuButton}
                         >
                             <MenuIcon />
                         </IconButton>

@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/core/styles";
 
-import Images from "../../assets/images/undraw_Blogging.svg";
+import Images from "../../../assets/images/undraw_Blogging.svg";
 
 export const useStyles = makeStyles((theme) => ({
     root: {
@@ -16,6 +16,8 @@ export const useStyles = makeStyles((theme) => ({
         },
     },
     image: {
+        width: "100%",
+        height: "100%",
         backgroundImage: `url(${Images})`,
         backgroundRepeat: "no-repeat",
         backgroundColor:
@@ -31,8 +33,13 @@ export const useStyles = makeStyles((theme) => ({
             backgroundSize: "contain",
         },
     },
-    rightSide: {
+    content: {
         backgroundColor: "rgba(0, 0, 0, 0.4)",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        width: "100%",
+        height: "100%",
     },
     paper: {
         width: "100%",
@@ -67,11 +74,15 @@ export const useStyles = makeStyles((theme) => ({
     submit: {
         margin: theme.spacing(3, 0, 2),
     },
-    textField: {
+    halfTextField: {
         width: "48%",
         [theme.breakpoints.down("xs")]: {
             width: "100%",
             maxWidth: "100%",
         },
+    },
+    textCenter: {
+        textAlign: "center",
+        width: "100%",
     },
 }));

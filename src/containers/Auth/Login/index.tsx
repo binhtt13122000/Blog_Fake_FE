@@ -1,22 +1,21 @@
 import React from "react";
 
 import { useForm } from "react-hook-form";
-import { useHistory } from "react-router";
 
-import BoxBase from "../../../components/Box/BoxBase/index";
 import ButtonBase from "../../../components/Button/ButtonBase/index";
+import Layout from "../../../components/Layout/Auth/index";
+import { useStyles } from "../../../components/Layout/Auth/makeStyle";
 import CircularProgressBase from "../../../components/Loading/CircularProgressBase/index";
+import SwitchAuth from "../../../components/SwitchAuth/index";
 import TextFieldRhf from "../../../components/TextField/TextFieldRhf/index";
-import { Link, Typography } from "@material-ui/core";
+import { Typography } from "@material-ui/core";
 
 import useAuth from "../../../hooks/Authenticate";
-import Layout from "../Layout/index";
-import { useStyles } from "../makeStyle";
 
 const Login: React.FC = () => {
     const classes = useStyles();
     const { isLoading, authenticate } = useAuth();
-    const history = useHistory();
+
     const {
         register,
         handleSubmit,
@@ -95,18 +94,7 @@ const Login: React.FC = () => {
                     )}
                 </ButtonBase>
             </form>
-            <BoxBase textAlign="center" width={1}>
-                <Link
-                    style={{ cursor: "pointer", paddingTop: "10px", paddingBottom: "10px" }}
-                    color="primary"
-                    variant="body2"
-                    onClick={() => {
-                        history.push("/register");
-                    }}
-                >
-                    {"Chưa có tài khoản trước đây? Đăng kí"}
-                </Link>
-            </BoxBase>
+            <SwitchAuth linkDesc="Chưa có tài khoản trước đây? Đăng kí" href="/register" />
         </Layout>
     );
 };
