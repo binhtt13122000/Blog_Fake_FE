@@ -115,7 +115,7 @@ export const useStyles = makeStyles((theme) => ({
 
 const UserProfile: React.FC = () => {
     const classes = useStyles();
-    const isVerify = true;
+    const [isVerify, setIsVerify] = useState(true);
     const [isEdit, setIsEdit] = useState(false);
     return (
         <>
