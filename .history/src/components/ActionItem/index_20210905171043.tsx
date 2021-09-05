@@ -5,7 +5,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 import "react-markdown-editor-lite/lib/index.css";
 
-export const useStyles = makeStyles(() => ({
+export const useStyles = makeStyles((theme) => ({
     postTagItem: {
         display: "flex",
         alignItems: "center",

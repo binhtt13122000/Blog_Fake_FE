@@ -144,12 +144,13 @@ const categories = [
     "Writing",
     "Books",
 ];
-const AddPost: React.FC = () => {
+const AddPost = () => {
     const [visibility, setVisibility] = React.useState(true);
     const {
         register,
         handleSubmit,
         clearErrors,
+        getValues,
         formState: { errors },
     } = useForm();
     const classes = useStyles();
