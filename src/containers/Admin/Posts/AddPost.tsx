@@ -4,10 +4,11 @@ import MarkdownIt from "markdown-it";
 import { useForm } from "react-hook-form";
 import MdEditor from "react-markdown-editor-lite";
 
-import ActionItem from "../../components/ActionItem/index";
-import CategoryList from "../../components/CategoryList/index";
-import DashBoardMain from "../../components/DashBoardMain";
-import TextFieldRhf from "../../components/TextField/TextFieldRhf/index";
+import ActionItem from "../../../components/ActionItem/index";
+import CategoryList from "../../../components/CategoryList/index";
+import DashBoardMain from "../../../components/DashBoardMain";
+import PostHeading from "../../../components/PostHeading";
+import TextFieldRhf from "../../../components/TextField/TextFieldRhf/index";
 import { Box, Button, Card, CardContent, CardHeader, Hidden, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import VisibilityIcon from "@material-ui/icons/Visibility";
@@ -85,15 +86,6 @@ export const useStyles = makeStyles((theme) => ({
         alignItems: "center",
         justifyContent: "flex-start",
         columnGap: 4,
-    },
-    postTitle: {
-        fontWeight: 500,
-        fontSize: "26px",
-    },
-    subTitle: {
-        fontWeigh: 400,
-        color: "#818ea3",
-        letterSpacing: "2px",
     },
     media: {
         height: 0,
@@ -177,6 +169,7 @@ const AddPost: React.FC = () => {
         <>
             <DashBoardMain />
             <Box className={classes.root}>
+                <PostHeading subTitle="Blog Posts" pageTitle="Add New Post" />
                 <Box className={classes.hero}>
                     <Card className={classes.postMain}>
                         <form

@@ -2,67 +2,12 @@ import React from "react";
 
 import MaterialTable from "material-table";
 
-import DashBoardMain from "../../components/DashBoardMain";
-import { createStyles, makeStyles, Theme, Typography } from "@material-ui/core";
+import DashBoardMain from "../../../components/DashBoardMain";
+import { Typography } from "@material-ui/core";
 
-const heightNavBar = 60;
-const spacing = 8;
-const useStyles = makeStyles((theme: Theme) =>
-    createStyles({
-        root: {
-            display: "flex",
-            margin: theme.spacing(0),
-        },
-        table: {
-            margin: spacing * 2,
-            marginTop: heightNavBar + spacing * 2,
-            width: "100%",
-            height: "100%",
-        },
-        tableTitle: {
-            whiteSpace: "nowrap",
-            overflow: "hidden",
-            textOverflow: "ellipsis",
-            padding: "12px 6px",
-        },
-        verified: {
-            backgroundColor: "rgb(0 216 0 / 43%)",
-            color: "green",
-            fontWeight: 600,
-            padding: "6px 4px",
-            borderRadius: "6px",
-            textAlign: "center",
-        },
-        notVerify: {
-            backgroundColor: "rgb(255 59 59 / 25%)",
-            color: "red",
-            fontWeight: 600,
-            padding: "6px 4px",
-            borderRadius: "6px",
-            textAlign: "center",
-        },
-        tagAdmin: {
-            color: "#0000ffb5",
-            textAlign: "center",
-            fontWeight: 500,
-        },
-        tagUser: {
-            color: "#008000cc",
-            textAlign: "center",
-            fontWeight: 500,
-        },
-        tagEmpty: {
-            backgroundColor: "red",
-            color: "white",
-            paddingTop: theme.spacing(1),
-            paddingBottom: theme.spacing(1),
-            borderRadius: "6px",
-            textAlign: "center",
-        },
-    })
-);
+import { useStyles } from "../style/ManageStyles";
 
-const ManageUser: React.FC = () => {
+const ManagePost: React.FC = () => {
     const classes = useStyles();
     const [selectedRow, setSelectedRow] = React.useState<number | undefined>();
 
@@ -73,7 +18,7 @@ const ManageUser: React.FC = () => {
                 <MaterialTable
                     title={
                         <Typography variant="h5" className={classes.tableTitle}>
-                            Users Management
+                            Posts Management
                         </Typography>
                     }
                     columns={[
@@ -318,4 +263,4 @@ const ManageUser: React.FC = () => {
     );
 };
 
-export default ManageUser;
+export default ManagePost;
