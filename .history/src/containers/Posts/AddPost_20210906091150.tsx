@@ -7,7 +7,6 @@ import MdEditor from "react-markdown-editor-lite";
 import ActionItem from "../../components/ActionItem/index";
 import CategoryList from "../../components/CategoryList/index";
 import DashBoardMain from "../../components/DashBoardMain";
-import PostHeading from "../../components/PostHeading";
 import TextFieldRhf from "../../components/TextField/TextFieldRhf/index";
 import { Box, Button, Card, CardContent, CardHeader, Hidden, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
@@ -169,7 +168,6 @@ const AddPost: React.FC = () => {
         <>
             <DashBoardMain />
             <Box className={classes.root}>
-                <PostHeading subTitle="Blog Posts" pageTitle="Add New Post" />
                 <Box className={classes.hero}>
                     <Card className={classes.postMain}>
                         <form

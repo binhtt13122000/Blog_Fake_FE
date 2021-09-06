@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme: Theme) =>
             marginTop: heightNavBar + spacing * 2.5,
             width: "100%",
             height: "100%",
-            [theme.breakpoints.down("md")]: {
+            [theme.breakpoints.down("sm")]: {
                 margin: 0,
                 marginTop: heightNavBar,
             },

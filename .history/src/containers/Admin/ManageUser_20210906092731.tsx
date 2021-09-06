@@ -6,22 +6,17 @@ import DashBoardMain from "../../components/DashBoardMain";
 import { createStyles, makeStyles, Theme, Typography } from "@material-ui/core";
 
 const heightNavBar = 60;
-const spacing = 8;
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         root: {
             display: "flex",
             margin: theme.spacing(0),
+            marginTop: "4px",
         },
         table: {
-            margin: spacing * 2,
-            marginTop: heightNavBar + spacing * 2.5,
+            marginTop: heightNavBar,
             width: "100%",
             height: "100%",
-            [theme.breakpoints.down("md")]: {
-                margin: 0,
-                marginTop: heightNavBar,
-            },
         },
         tableTitle: {
             whiteSpace: "nowrap",

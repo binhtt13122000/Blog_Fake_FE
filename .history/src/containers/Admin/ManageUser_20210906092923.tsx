@@ -15,13 +15,9 @@ const useStyles = makeStyles((theme: Theme) =>
         },
         table: {
             margin: spacing * 2,
-            marginTop: heightNavBar + spacing * 2.5,
+            marginTop: heightNavBar + spacing * 2,
             width: "100%",
             height: "100%",
-            [theme.breakpoints.down("md")]: {
-                margin: 0,
-                marginTop: heightNavBar,
-            },
         },
         tableTitle: {
             whiteSpace: "nowrap",
