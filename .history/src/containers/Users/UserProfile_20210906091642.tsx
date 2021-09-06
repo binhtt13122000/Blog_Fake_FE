@@ -68,7 +68,8 @@ export const useStyles = makeStyles((theme) => ({
         },
     },
     profileMain: {
-        padding: theme.spacing(1, 4),
+        padding: theme.spacing(4),
+        paddingTop: theme.spacing(1),
     },
     profileActions: {
         display: "flex",
@@ -117,7 +118,7 @@ const UserProfile: React.FC = () => {
         <>
             <DashBoardMain />
             <BoxBase className={classes.root}>
-                <PostHeading pageTitle="Personal Information" />
+                <PostHeading subTitle="Blog Posts" pageTitle="Personal Information" />
                 <BoxBase className={classes.profileContent}>
                     <BoxBase className={classes.profileTop}>
                         <div className={classes.avatar}>

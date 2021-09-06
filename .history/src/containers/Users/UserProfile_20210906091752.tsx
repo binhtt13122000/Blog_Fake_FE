@@ -68,7 +68,8 @@ export const useStyles = makeStyles((theme) => ({
         },
     },
     profileMain: {
-        padding: theme.spacing(1, 4),
+        padding: theme.spacing(4),
+        paddingTop: theme.spacing(1),
     },
     profileActions: {
         display: "flex",

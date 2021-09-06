@@ -5,7 +5,7 @@ import ButtonBase from "../../components/Button/ButtonBase/index";
 import DashBoardMain from "../../components/DashBoardMain";
 import PostHeading from "../../components/PostHeading";
 import TextFieldRhf from "../../components/TextField/TextFieldRhf/index";
-import { Avatar, Tooltip } from "@material-ui/core";
+import { Avatar, Tooltip, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import ErrorIcon from "@material-ui/icons/Error";
 import VerifiedUserIcon from "@material-ui/icons/VerifiedUser";
@@ -68,7 +68,8 @@ export const useStyles = makeStyles((theme) => ({
         },
     },
     profileMain: {
-        padding: theme.spacing(1, 4),
+        padding: theme.spacing(4),
+        paddingTop: theme.spacing(1),
     },
     profileActions: {
         display: "flex",
@@ -117,7 +118,7 @@ const UserProfile: React.FC = () => {
         <>
             <DashBoardMain />
             <BoxBase className={classes.root}>
-                <PostHeading pageTitle="Personal Information" />
+                <PostHeading subTitle="Blog Posts" pageTitle="Personal Information" />
                 <BoxBase className={classes.profileContent}>
                     <BoxBase className={classes.profileTop}>
                         <div className={classes.avatar}>
